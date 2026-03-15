@@ -12,12 +12,16 @@
         }
 
         :root {
-            --primary: #1a1a2e;
-            --accent: #16213e;
-            --highlight: #0f3460;
-            --mint: #98FF98;
-            --text: #333;
-            --light: #f8f9fa;
+            --mew-blue: #6B7B8C;
+            --mew-blue-dark: #4A5568;
+            --mint-green: #98FF98;
+            --cream: #F5F5DC;
+            --white: #FFFFFF;
+            --text: #333333;
+            --text-light: #666666;
+            --primary: #6B7B8C;
+            --accent: #4A5568;
+            --highlight: #98FF98;
         }
 
         body {
@@ -74,8 +78,8 @@
         }
 
         .cta-button {
-            background: #2ecc71;
-            color: white;
+            background: var(--mint-green);
+            color: var(--mew-blue-dark);
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
@@ -90,26 +94,8 @@
 
         /* Hero */
         .hero {
-            min-height: 100vh;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-        }
+            min-height: 60vh;
+            background: linear-gradient(135deg, var(--mew-blue) 0%, var(--mew-blue-dark) 100%);
 
         .hero-content {
             max-width: 700px;
@@ -125,7 +111,7 @@
         }
 
         .hero h1 span {
-            color: var(--mint);
+            color: var(--mint-green);
         }
 
         .hero p {
@@ -136,7 +122,8 @@
 
         .hero .cta-button {
             display: inline-block;
-            background: var(--mint);
+            background: var(--mint-green);
+            color: var(--mew-blue-dark);
             color: var(--primary);
             padding: 1rem 2.5rem;
             font-size: 1.1rem;
