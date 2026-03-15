@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeorgeWalks | San Francisco Dog Walking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,606 +15,635 @@
         }
 
         :root {
-            --coral: #FF6B6B;
-            --coral-light: #FFE5E5;
-            --teal: #4ECDC4;
-            --teal-dark: #2A9D8F;
-            --yellow: #FFE66D;
-            --cream: #FFF9F0;
+            --forest: #1B4332;
+            --forest-light: #2D6A4F;
+            --sage: #95D5B2;
+            --cream: #FDF8F3;
+            --warm: #DDA15E;
             --white: #FFFFFF;
-            --text: #2D3436;
-            --text-light: #636E72;
+            --dark: #1a1a1a;
+            --gray: #666;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
             background: var(--cream);
         }
 
         /* Header */
         header {
-            background: var(--white);
-            padding: 1rem 2rem;
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-        }
-
-        nav {
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: rgba(253, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
             font-weight: 700;
-            color: var(--coral);
+            color: var(--forest);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
+        .logo::before {
+            content: '🌿';
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text);
+            color: var(--gray);
             text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: all 0.3s;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--forest);
+            transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            background: var(--coral-light);
-            color: var(--coral);
+            color: var(--forest);
         }
 
-        .cta-button {
-            background: var(--coral);
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: var(--forest);
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 0.95rem;
             transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
         }
 
-        .cta-button:hover {
-            background: #FF5252;
+        .cta-btn:hover {
+            background: var(--forest-light);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 8px 20px rgba(27, 67, 50, 0.25);
         }
 
         /* Hero */
         .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             padding: 8rem 2rem 4rem;
-            text-align: center;
-            background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+            background: linear-gradient(135deg, var(--cream) 0%, #f5ebe0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(149, 213, 178, 0.3) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .hero-content {
-            max-width: 700px;
-            margin: 0 auto;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--sage);
+            color: var(--forest);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            color: var(--text);
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
         }
 
         .hero h1 span {
-            color: var(--coral);
+            color: var(--forest);
+            font-style: italic;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: var(--text-light);
+            font-size: 1.15rem;
+            color: var(--gray);
             margin-bottom: 2rem;
+            max-width: 480px;
         }
 
-        .hero-buttons {
+        .hero-btns {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
         }
 
-        .btn-primary {
-            background: var(--coral);
+        .btn-main {
+            background: var(--forest);
             color: white;
             padding: 1rem 2rem;
-            border-radius: 30px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 500;
             transition: all 0.3s;
         }
 
-        .btn-primary:hover {
-            background: #FF5252;
+        .btn-main:hover {
+            background: var(--forest-light);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 10px 30px rgba(27, 67, 50, 0.3);
         }
 
-        .btn-secondary {
-            background: var(--white);
-            color: var(--coral);
+        .btn-outline {
+            background: transparent;
+            color: var(--forest);
             padding: 1rem 2rem;
-            border-radius: 30px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border: 2px solid var(--coral);
+            font-weight: 500;
+            border: 2px solid var(--forest);
             transition: all 0.3s;
         }
 
-        .btn-secondary:hover {
-            background: var(--coral-light);
+        .btn-outline:hover {
+            background: var(--forest);
+            color: white;
         }
 
-        /* Section titles */
-        .section-title {
+        /* Section styles */
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
             text-align: center;
-            font-size: 2.5rem;
-            color: var(--text);
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            color: var(--warm);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem;
+            color: var(--dark);
             margin-bottom: 0.5rem;
         }
 
         .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-        }
-
-        /* Features */
-        .features {
-            padding: 5rem 2rem;
-            background: var(--white);
-        }
-
-        .features-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--cream);
-            padding: 2rem;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 3px solid transparent;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--coral-light);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.15);
-        }
-
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            background: var(--coral-light);
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            border-radius: 50%;
-        }
-
-        .feature-card h3 {
-            color: var(--text);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .feature-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+            color: var(--gray);
+            font-size: 1.1rem;
         }
 
         /* Services */
-        .services {
-            padding: 5rem 2rem;
-            background: var(--cream);
-        }
-
-        .services-inner {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .services-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 1.5rem 2rem;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        .service-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        .service-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
 
         .service-icon {
             font-size: 2.5rem;
-            flex-shrink: 0;
+            margin-bottom: 1rem;
         }
 
-        .service-info {
-            flex: 1;
+        .service-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
         }
 
-        .service-info h3 {
-            color: var(--text);
-            font-size: 1.2rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .service-info p {
-            color: var(--text-light);
-            font-size: 0.9rem;
+        .service-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
         }
 
         .service-price {
-            background: var(--teal);
-            color: white;
-            padding: 0.5rem 1.25rem;
-            border-radius: 20px;
+            font-size: 1.5rem;
             font-weight: 700;
-            font-size: 1.1rem;
-            flex-shrink: 0;
+            color: var(--forest);
         }
 
         /* About */
         .about {
-            padding: 5rem 2rem;
-            background: var(--teal);
+            background: var(--forest);
             color: white;
         }
 
-        .about-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .about h2 {
-            font-size: 2.5rem;
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem;
             margin-bottom: 1.5rem;
         }
 
-        .about p {
-            font-size: 1.15rem;
-            opacity: 0.95;
+        .about-content p {
+            opacity: 0.9;
             margin-bottom: 1rem;
-            line-height: 1.8;
+            font-size: 1.05rem;
         }
 
-        .about-emoji {
+        .about-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--sage);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .about-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .about-img {
+            background: var(--sage);
+            border-radius: 20px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 4rem;
-            margin-bottom: 1rem;
+        }
+
+        .about-img:first-child {
+            grid-row: span 2;
         }
 
         /* Gallery */
-        .gallery {
-            padding: 5rem 2rem;
-            background: var(--white);
-        }
-
-        .gallery-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
         }
 
         .gallery-item {
-            border-radius: 20px;
-            overflow: hidden;
             aspect-ratio: 1;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            overflow: hidden;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.5s;
         }
 
         .gallery-item:hover img {
             transform: scale(1.1);
         }
 
-        /* Contact */
-        .contact {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, var(--coral-light) 0%, var(--cream) 100%);
+        .gallery-item:nth-child(1) {
+            grid-row: span 2;
         }
 
-        .contact-inner {
+        /* Contact */
+        .contact {
+            background: white;
+        }
+
+        .contact-card {
             max-width: 600px;
             margin: 0 auto;
             text-align: center;
-            background: var(--white);
-            padding: 3rem;
+            padding: 4rem;
+            background: var(--cream);
             border-radius: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
-        .contact h2 {
-            font-size: 2rem;
-            color: var(--text);
-            margin-bottom: 0.5rem;
+        .contact-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .contact p {
-            color: var(--text-light);
+        .contact-card p {
+            color: var(--gray);
             margin-bottom: 2rem;
         }
 
-        .contact-cards {
+        .contact-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
             margin-bottom: 2rem;
         }
 
-        .contact-card {
-            background: var(--cream);
-            padding: 1rem 1.5rem;
-            border-radius: 15px;
+        .contact-link {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border-radius: 50px;
             text-decoration: none;
-            color: var(--text);
+            color: var(--dark);
+            font-weight: 500;
             transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .contact-card:hover {
+        .contact-link:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        .contact-card span {
-            font-size: 1.5rem;
+        .contact-link span {
+            font-size: 1.25rem;
         }
 
         /* Footer */
         footer {
-            background: var(--text);
+            background: var(--dark);
             color: white;
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
         }
 
         footer p {
-            opacity: 0.8;
+            opacity: 0.7;
+            font-size: 0.95rem;
         }
 
         /* Mobile */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.5rem;
-            }
-
-            .nav-links a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                padding: 7rem 1.5rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                max-width: 280px;
-                text-align: center;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            .features, .services, .about, .gallery, .contact {
-                padding: 3rem 1rem;
-            }
-
-            .service-card {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .service-price {
-                width: 100%;
+            .about-visual {
+                display: none;
             }
 
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .contact-cards {
+            .gallery-item:nth-child(1) {
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
                 flex-direction: column;
-                align-items: center;
+                gap: 1rem;
             }
 
-            .contact-inner {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .btn-main, .btn-outline {
+                text-align: center;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-card {
                 padding: 2rem 1.5rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
     <header>
+        <div class="logo">GeorgeWalks</div>
         <nav>
-            <div class="logo">🐕 GeorgeWalks</div>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="cta-button">Book a Walk</a>
+            <a href="#contact" class="cta-btn">Book a Walk</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Where Every <span>Tail Wags</span> Happily!</h1>
-            <p>Friendly, reliable dog walking in San Francisco. Because your pup deserves the best adventures! 🐾</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Book a Free Meet & Greet</a>
-                <a href="#services" class="btn-secondary">View Services</a>
+            <span class="hero-tag">San Francisco's Favorite Dog Walker</span>
+            <h1>Where <span>Happy Tails</span> Begin</h1>
+            <p>Professional, loving dog walking services. Your pup gets expert care, fun adventures, and lots of belly rubs.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-main">Book a Free Meet & Greet</a>
+                <a href="#services" class="btn-outline">See Services</a>
             </div>
         </div>
     </section>
 
-    <section class="features">
-        <div class="features-inner">
-            <h2 class="section-title">Why Pup Parents Love Us</h2>
-            <p class="section-subtitle">More than just walks — we're your dog's new best friends!</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚶</div>
-                    <h3>Fun Adventures</h3>
-                    <p>Every walk is an exploration! We discover the best spots in SF.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📸</div>
-                    <h3>Photo Updates</h3>
-                    <p>Get cute photos after every walk so you know your pup is happy!</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💝</div>
-                    <h3>Loving Care</h3>
-                    <p>Treat every dog like family.Lots of pets, cuddles, and playtime!</p>
-                </div>
+    <section class="section services" id="services">
+        <div class="section-inner">
+            <div class="section-header">
+                <p class="section-label">What We Offer</p>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Tail-wagging services for your furry best friend</p>
             </div>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="services-inner">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Simple, fair pricing for happy pups</p>
             
-            <div class="services-list">
-                <div class="service-card">
+            <div class="services-grid">
+                <div class="service-item">
                     <div class="service-icon">🚶</div>
-                    <div class="service-info">
-                        <h3>Half Hour Walk</h3>
-                        <p>Quick & snappy walk for busy days</p>
-                    </div>
+                    <h3 class="service-name">Half Hour Walk</h3>
+                    <p class="service-desc">Quick & fun walk for busy days</p>
                     <div class="service-price">$20</div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">🏃</div>
-                    <div class="service-info">
-                        <h3>Full Hour Walk</h3>
-                        <p>Longer adventure around the neighborhood</p>
-                    </div>
+                <div class="service-item">
+                    <div class="service-icon">🏃‍♂️</div>
+                    <h3 class="service-name">Full Hour Walk</h3>
+                    <p class="service-desc">Longer adventure around the city</p>
                     <div class="service-price">$35</div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-item">
                     <div class="service-icon">🏠</div>
-                    <div class="service-info">
-                        <h3>Dog Boarding</h3>
-                        <p>Overnight stays in a cozy home</p>
-                    </div>
+                    <h3 class="service-name">Dog Boarding</h3>
+                    <p class="service-desc">Overnight stay in a loving home</p>
                     <div class="service-price">$75/night</div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">🌟</div>
-                    <div class="service-info">
-                        <h3>Dog Sitting</h3>
-                        <p>Daytime care in your home</p>
-                    </div>
+                <div class="service-item">
+                    <div class="service-icon">⭐</div>
+                    <h3 class="service-name">Dog Sitting</h3>
+                    <p class="service-desc">Daytime care in your home</p>
                     <div class="service-price">$80/day</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-inner">
-            <div class="about-emoji">🐕‍🦺</div>
-            <h2>Hi, I'm George!</h2>
-            <p>I absolutely love dogs! Whether it's a fun walk in Golden Gate Park, a beach adventure, or giving your pup lots of attention while you're away — your furry friend is in great hands.</p>
-            <p>I'm reliable, punctual, and genuinely care about making every pup happy. Let's meet your best friend! 🐾</p>
+    <section class="section about" id="about">
+        <div class="section-inner">
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="section-label">About Me</p>
+                    <h2>Meet Your Dog's New Best Friend</h2>
+                    <p>Hi! I'm George, and I've been caring for dogs in San Francisco for years. I genuinely love every furry client I meet!</p>
+                    <p>Whether it's a walk through Golden Gate Park, a beach adventure, or overnight boarding, your pup gets lots of love, attention, and exercise.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Walks</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Happy Pups</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5★</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="about-img">🐕</div>
+                    <div class="about-img">🦴</div>
+                    <div class="about-img">🎾</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="gallery" id="gallery">
-        <div class="gallery-inner">
-            <h2 class="section-title">Happy Pups Gallery</h2>
-            <p class="section-subtitle">Some of our furry friends having a blast!</p>
+    <section class="section gallery" id="gallery">
+        <div class="section-inner">
+            <div class="section-header">
+                <p class="section-label">Our Friends</p>
+                <h2 class="section-title">Happy Pups Gallery</h2>
+                <p class="section-subtitle">Some of the tails that wag with us!</p>
+            </div>
             
             <div class="gallery-grid">
                 <div class="gallery-item"><img src="dogs-scruffy.jpg" alt="Dogs"></div>
@@ -624,32 +656,31 @@
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <div class="contact-inner">
-            <h2>Let's Chat! 👋</h2>
-            <p>Ready to give your pup the best walks in SF?</p>
-            
-            <div class="contact-cards">
-                <a href="mailto:Gtinoco82690@gmail.com" class="contact-card">
-                    <span>📧</span>
-                    Email Me
-                </a>
-                <a href="tel:14153240599" class="contact-card">
-                    <span>📱</span>
-                    Call Me
-                </a>
-                <div class="contact-card">
-                    <span>📍</span>
-                    San Francisco
+    <section class="section contact" id="contact">
+        <div class="section-inner">
+            <div class="contact-card">
+                <h2>Let's Connect</h2>
+                <p>Ready to give your pup the best walks in SF? Drop me a message!</p>
+                
+                <div class="contact-links">
+                    <a href="mailto:Gtinoco82690@gmail.com" class="contact-link">
+                        <span>📧</span> Email
+                    </a>
+                    <a href="tel:14153240599" class="contact-link">
+                        <span>📱</span> Call
+                    </a>
+                    <div class="contact-link">
+                        <span>📍</span> San Francisco
+                    </div>
                 </div>
+                
+                <a href="mailto:Gtinoco82690@gmail.com" class="btn-main">Send a Message</a>
             </div>
-            
-            <a href="mailto:Gtinoco82690@gmail.com" class="btn-primary">Send a Message</a>
         </div>
     </section>
 
     <footer>
-        <p>Made with ❤️ for dogs everywhere 🐕 © 2026 GeorgeWalks</p>
+        <p>© 2026 GeorgeWalks — Made with 🌿 for dogs everywhere</p>
     </footer>
 </body>
 </html>
