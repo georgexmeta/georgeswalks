@@ -32,13 +32,55 @@
         }
 
         [data-theme="dark"] {
-            --cream: #1a1a1a;
+            --cream: #121212;
             --white: #2d2d2d;
             --dark: #FDF8F3;
             --gray: #aaa;
             --bg-color: #121212;
             --text-color: #FDF8F3;
             --card-bg: #2d2d2d;
+            --forest: #4A5568;
+            --forest-light: #6B7B8C;
+        }
+
+        [data-theme="dark"] body,
+        [data-theme="dark"] h1,
+        [data-theme="dark"] h2,
+        [data-theme="dark"] h3,
+        [data-theme="dark"] p,
+        [data-theme="dark"] .section-title,
+        [data-theme="dark"] .section-subtitle,
+        [data-theme="dark"] .section-label,
+        [data-theme="dark"] .logo,
+        [data-theme="dark"] .nav-links a,
+        [data-theme="dark"] .stat-label,
+        [data-theme="dark"] .service-name,
+        [data-theme="dark"] .service-desc,
+        [data-theme="dark"] .contact-card p,
+        [data-theme="dark"] footer p {
+            color: #FDF8F3 !important;
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(18, 18, 18, 0.95) !important;
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(180deg, #2d2d2d 0%, #121212 100%) !important;
+        }
+
+        [data-theme="dark"] .service-item,
+        [data-theme="dark"] .contact-card,
+        [data-theme="dark"] .feature-card {
+            background: #2d2d2d !important;
+        }
+
+        [data-theme="dark"] .about {
+            background: #2d2d2d !important;
+        }
+
+        [data-theme="dark"] iframe {
+            filter: invert(90%) hue-rotate(180deg);
         }
 
         body {
@@ -562,10 +604,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-                <button id="theme-toggle" onclick="toggleTheme()" style="background: var(--forest); border: none; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; font-size: 1.2rem;">🌙</button>
-                <a href="#contact" class="cta-btn">Book a Walk</a>
-            </div>
+            <a href="#contact" class="cta-btn">Book a Walk</a>
         </nav>
     </header>
 
@@ -713,6 +752,7 @@
     </section>
 
     <footer>
+        <button id="theme-toggle" onclick="toggleTheme()" style="background: var(--forest); border: none; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1.2rem; margin-bottom: 1rem;">🌙</button>
         <p>© 2026 GeorgeWalks — Made with  for dogs everywhere</p>
     </footer>
 
